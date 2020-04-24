@@ -11,7 +11,7 @@ You should have a few things open and ready:
 - Visual Studio Code
     - Extensions: [Azure Functions Core Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
-## Demo 1 - Create a New Project using Azure Functions Core Tools
+## Demo 1 - [Create a New Project using Azure Functions Core Tools](https://youtu.be/SnbDXP40g3c)
 
 **Create project folder**
 
@@ -81,7 +81,7 @@ A virtual environment is created alongside the project. Activate the virtual env
 
 [Azure Functions Core Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) lets you develop and test your functions on your local computer from the command prompt or terminal. Your local functions can connect to live Azure services, and you can debug your functions on your local computer using the full Functions runtime. This tool will also enable you to deploy a function app to your Azure subscription. Since we’ll need this to create the function, install Azure Functions Core Tools based on the instructions for your operating system.
 
-## Demo 2 - Setup COVID-19 API GET Request
+## Demo 2 - [Setup COVID-19 API GET Request](https://youtu.be/aj18Oa1tjQs)
 
 **Install and import requests**
 
@@ -113,7 +113,7 @@ We first create a `response` variable that stores the GET request for the API. B
 
 Create variables for `total_confirmed` and `total_deaths` and assign the respective values from the JSON response to each variable.
 
-## Demo 3 - Create Twilio Message
+## Demo 3 - [Create Twilio Message](https://youtu.be/Z_jE8yaO0iY)
 
 **Create environment variables**
 
@@ -185,7 +185,7 @@ The `client` variable class looks for your Twilio credentials by default in TWIL
 
 Next, we'll create the message. Using the variables we created earlier for data from the COVID-19 API, use f-strings to create a message. In the code above, I created the message: `As of today, there are {total_confirmed} confirmed cases and {total_deaths} deaths for the United States.`
 
-## Demo 4 - Visual Studio Code Debugger
+## Demo 4 - [Visual Studio Code Debugger](https://youtu.be/OzS3Ucpu-pk)
 
 Now that the message is created, we can prepare for testing the function. However, we need to update the `requirements.txt` file and `function.json` file. 
 
@@ -289,7 +289,7 @@ If the process fails the first time you debug, press “Ctrl” + “C” on you
 
 Depending on the CRON expression you chose, the text will be sent after the first event triggers.
 
-## Demo 5 - Deploy Function to Azure
+## Demo 5 - [Deploy Function to Azure](https://youtu.be/ctXXLPCZQx0)
 
 **Update CRON expression for a daily trigger**
 

@@ -10,7 +10,7 @@ Wouldn't it be great if you could schedule a daily SMS message which provides yo
 |---------|---------|
 |Presentation     |   [Presentation](https://github.com/MaximRouiller/msp002/blob/speight/Presentation/azurefunctionstimertrigger_presentation.pptx)      |
 |Videos     |  [Train the Trainer](https://github.com/MaximRouiller/msp002/blob/speight/Presentation/azurefunctionstimertrigger_train.pptx)<br>[Presentation (Audio)](https://github.com/MaximRouiller/msp002/blob/speight/Presentation/azurefunctionstimertrigger_presentation_audio.pptx)       |
-|Demos     |  Demo 1: [Create a New Project using Azure Functions Core Tools](link)<br> Demo 2: [Setup COVID-19 API GET Request](link)<br> Demo 3: [Create Twilio Message](link)<br> Demo 4: [Visual Studio Code Debugger](link)<br> Demo 5: [Deploy Function to Azure](link)    |
+|Demos     |  Demo 1: [Create a New Project using Azure Functions Core Tools](https://youtu.be/SnbDXP40g3c)<br> Demo 2: [Setup COVID-19 API GET Request](https://youtu.be/aj18Oa1tjQs)<br> Demo 3: [Create Twilio Message](https://youtu.be/Z_jE8yaO0iY)<br> Demo 4: [Visual Studio Code Debugger](https://youtu.be/OzS3Ucpu-pk)<br> Demo 5: [Deploy Function to Azure](https://youtu.be/ctXXLPCZQx0)    |
 
 ## How to Use
 
@@ -50,8 +50,8 @@ Detailed explanations of each demonstration associated with this presentation ca
 
 |Demo  |Minutes  |Video  |
 |---------|---------|---------|
-|Create a New Project using Azure Functions Core Tools     |    5:42     |    [Download Video](link)     |
-|Setup COVID-19 API GET Request    |    2:52     |    [Download Video](link)     |
-|Create Twilio Message     |    6:27     |    [Download Video](link)     |
-|Visual Studio Code Debugger     |    2:16     |   [Download Video](link)      |
-|Deploy Function to Azure     |    4:18     |  [Download Video](link)       |
+|Create a New Project using Azure Functions Core Tools     |    5:42     |    [Watch Video](https://youtu.be/SnbDXP40g3c)     |
+|Setup COVID-19 API GET Request    |    2:52     |    [Watch Video](https://youtu.be/aj18Oa1tjQs)     |
+|Create Twilio Message     |    6:27     |    [Watch Video](https://youtu.be/Z_jE8yaO0iY)     |
+|Visual Studio Code Debugger     |    2:16     |   [Watch Video](https://youtu.be/OzS3Ucpu-pk)      |
+|Deploy Function to Azure     |    4:18     |  [Watch Video](https://youtu.be/ctXXLPCZQx0)       |
