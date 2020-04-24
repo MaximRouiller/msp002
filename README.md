@@ -8,8 +8,8 @@ Wouldn't it be great if you could schedule a daily SMS message which provides yo
 
 |**Resources** |**Links**  |
 |---------|---------|
-|Presentation     |   [Presentation](link)      |
-|Videos     |  [Train the Trainer](link)<br>[Presentation (Audio)](link)       |
+|Presentation     |   [Presentation](https://github.com/MaximRouiller/msp002/blob/speight/Presentation/azurefunctionstimertrigger_presentation.pptx)      |
+|Videos     |  [Train the Trainer](https://github.com/MaximRouiller/msp002/blob/speight/Presentation/azurefunctionstimertrigger_train.pptx)<br>[Presentation (Audio)](https://github.com/MaximRouiller/msp002/blob/speight/Presentation/azurefunctionstimertrigger_presentation_audio.pptx)       |
 |Demos     |  Demo 1: [Create a New Project using Azure Functions Core Tools](link)<br> Demo 2: [Setup COVID-19 API GET Request](link)<br> Demo 3: [Create Twilio Message](link)<br> Demo 4: [Visual Studio Code Debugger](link)<br> Demo 5: [Deploy Function to Azure](link)    |
 
 ## How to Use
@@ -30,7 +30,7 @@ This training repository is divided in to the following sections:
 
 |**Slides**  |**Demos**  |
 |---------|---------|
-|19 slides - 10 minutes     |  5 demos - TBD     |
+|19 slides - 9:35 minutes     |  5 demos - 22 minutes     |
 
 ## Slides
 
