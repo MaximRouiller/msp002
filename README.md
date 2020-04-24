@@ -50,8 +50,8 @@ Detailed explanations of each demonstration associated with this presentation ca
 
 |Demo  |Minutes  |Video  |
 |---------|---------|---------|
-|Create a New Project using Azure Functions Core Tools     |    TBD     |    [Download Video](link)     |
-|Setup COVID-19 API GET Request    |    TBD     |    [Download Video](link)     |
-|Create Twilio Message     |    TBD     |    [Download Video](link)     |
-|Visual Studio Code Debugger     |    TBD     |   [Download Video](link)      |
-|Deploy Function to Azure     |    TBD     |  [Download Video](link)       |
+|Create a New Project using Azure Functions Core Tools     |    5:42     |    [Download Video](link)     |
+|Setup COVID-19 API GET Request    |    2:52     |    [Download Video](link)     |
+|Create Twilio Message     |    6:27     |    [Download Video](link)     |
+|Visual Studio Code Debugger     |    2:16     |   [Download Video](link)      |
+|Deploy Function to Azure     |    4:18     |  [Download Video](link)       |
