@@ -7,8 +7,9 @@ You should have a few things open and ready:
 - Browser Tab - GitHub - on the demo page: [link to repo](link)
 - Browser Tab - COVID-19 API - [https://covid19api.com/](https://covid19api.com/)
 - Browser Tab - Twilio Console - [https://www.twilio.com/console](https://www.twilio.com/console)
+- Browser Tab - Time Zone Converter - [https://www.timeanddate.com/worldclock/converter.html](https://www.timeanddate.com/worldclock/converter.html)
 - Visual Studio Code
-    - Extensions: Azure Functions Core Tools, Python
+    - Extensions: [Azure Functions Core Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
 ## Demo 1 - Create a New Project using Azure Functions Core Tools
 
@@ -20,7 +21,7 @@ Since we'll be creating an Azure Function using the [Azure Functions Extension](
 
 Now, let’s open the folder location in Visual Studio Code. In the Visual Studio Code menu, click “File” > “Open Folder...”.
 
-[insert picture]
+![Open folder](assets/open-folder.png)
 
 In the file explorer, select the folder you just created and click “Select Folder”.
 
@@ -28,63 +29,65 @@ In the file explorer, select the folder you just created and click “Select Fol
 
 In Visual Studio Code, click the Azure logo then click “Sign in to Azure”.
 
-[insert picture]
+![Sign in to Azure](assets/sign-in-to-azure.png)
 
 A window in your browser will open and request you to sign in to Azure. Enter the credentials for your Azure account. After you’ve signed in successfully, the webpage will prompt you to close the window.
 
 In Visual Studio Code, verify that the email address of your Azure account appears in the **Status Bar**. The **Status Bar** is located at the bottom of Visual Studio Code.
 
-[insert picture]
-
-**Install Azure Functions Core Tools**
-
-[Azure Functions Core Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) lets you develop and test your functions on your local computer from the command prompt or terminal. Your local functions can connect to live Azure services, and you can debug your functions on your local computer using the full Functions runtime. This tool will also enable you to deploy a function app to your Azure subscription. Since we’ll need this to create the function, install Azure Functions Core Tools based on the instructions for your operating system. To start a new integrated terminal, in the Visual Studio Code menu, click “Terminal” > “New Terminal” to open a new terminal.
+![View email in status bar](assets/status-bar-email.png)
 
 **Create a new project**
 
 Now that you’ve verified that you’re signed in to your Azure account, create a new project in Visual Studio Code. In the Azure menu, click “Create New Project”.
 
-[insert picture]
+![Create a new project](assets/create-new-project.png)
 
 In the Visual Studio Code command palette, select the folder that you created earlier at the start of this tutorial. This folder is where the Azure Function files will be created. If the folder is not listed, click “Browse” to open the file explorer.
-
-[insert picture]
 
 Visual Studio Code will guide you through the instructions for creating a new function, however, I'll walk you through the steps as well!
 
 First, select “Python” as the language.
 
-[insert picture]
+![Select Python as the language](assets/select-python.png)
 
 Next, select the Python alias to create a virtual environment. As a reminder, only Python 3.6x 64 bit and 3.7x 64 bit are supported.
 
+![Select Python version](assets/python-alias.png)
+
 Next, select “Timer trigger” as the template.
 
-[insert picture]
+![Select Trigger template](assets/trigger-template.png)
 
 You will then be asked to provide a name for your function. Replace “TimerTrigger” with your function’s name.
 
-[insert picture]
+![Replace TimerTrigger with function's name](assets/timertrigger.png)
 
 Keep the Cron expression as-is - we'll update that later!
 
-[insert picture]
+![CRON expression](assets/cron-expression.png)
 
-Azure will begin to work it's magic to create the function - you can check the progress in the status bar at the bottom of Visual Studio Code.
+Azure will begin to create the function - you can check the progress in the status bar at the bottom of Visual Studio Code.
 
-Once Azure is done, the __init__.py file will open. The __init__.py file contains a template for a TimerTrigger. Delete the code inside the `main` function. The message for the SMS will be later added to the function.
+![Status of creating function](assets/status.png)
+
+Once Azure is done, the `__init__.py` file will open. The `__init__.py` file contains a template for a TimerTrigger. Delete the code inside the `main` function. The message for the SMS will be later added to the function.
 
 **Activate virtual environment**
 
 A virtual environment is created alongside the project. Activate the virtual environment by entering the command `.venv\Scripts\activate` (for Windows) or `source .venv/bin/activate` (for Mac and Linux) into the terminal.
 
+**Install Azure Functions Core Tools**
+
+[Azure Functions Core Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) lets you develop and test your functions on your local computer from the command prompt or terminal. Your local functions can connect to live Azure services, and you can debug your functions on your local computer using the full Functions runtime. This tool will also enable you to deploy a function app to your Azure subscription. Since we’ll need this to create the function, install Azure Functions Core Tools based on the instructions for your operating system.
+
 ## Demo 2 - Setup COVID-19 API GET Request
 
 **Install and import requests**
 
-Since we're working with GET requests, you'll need to import the requests module so that we can get data from the COVID-19 API.
+Since we're working with GET requests, you'll need to import the `requests` module so that we can get data from the COVID-19 API.
 
-You can install the module using `pip install requests` in the terminal within Visual Studio Code. At the top of the `__init__.py` file import the module.
+Install the module using `pip install requests`. At the top of the `__init__.py` file import the module.
 
 ```python
 import requests
@@ -93,7 +96,7 @@ import requests
 
 **Setup GET request**
 
-Let's get some data from the [COVID-19 API](https://covid19api.com/)! There are various endpoints to choose from, however, we'll be using **Summary** for our SMS message. We'll need to use the values for **TotalConfirmed** and **TotalDeaths** from the json response for the United States.
+Let's get some data from the [COVID-19 API](https://covid19api.com/)! There are various endpoints to choose from, however, we'll be using **Summary** for our SMS message. We'll need to use the values for **TotalConfirmed** and **TotalDeaths** from the JSON response for the United States.
 
 Inside the `main` function, create the GET request.
 
@@ -108,7 +111,7 @@ def main(mytimer: func.TimerRequest) -> None:
 
 We first create a `response` variable that stores the GET request for the API. Be sure to get the JSON response as well! You can store that in the variable `response_json`.
 
-Create variables for `total_confirmed` and `total_deaths` and assign the respective values from the json response to each variable.
+Create variables for `total_confirmed` and `total_deaths` and assign the respective values from the JSON response to each variable.
 
 ## Demo 3 - Create Twilio Message
 
@@ -123,11 +126,11 @@ MY_TWILIO_NUMBER='+XXXXXXXXXX'
 RECEIVER_NUMBER='+XXXXXXXXXX'
 ```
 
-You can find the Twilio Account SID and Auth Token for your account in your Twilio Console.For the Twilio numbers, be sure to start the number with the country code using E.164 standard. Also, if you are using a free Twilio account make sure that the `RECEIVER_NUMBER` phone number is a verified phone number within the Twilio console.
+You can find the **Twilio Account SID** and **Auth Token** for your account in your [Twilio Console](https://twilio.com/console?_ga=2.50357740.498092277.1587660290-75944301.1578957291). For the Twilio numbers, be sure to start the number with the country code using [E.164 standard](https://www.twilio.com/docs/glossary/what-e164). Also, if you are using a free Twilio account make sure that the `RECEIVER_NUMBER` phone number is a verified phone number within the Twilio console.
 
 Now that your environment variables are created, switch back over to the `__init.py__` file.
 
-To access the environment variables, you’ll need to install python-dotenv. You can install the module using `pip install python-dotenv` in the terminal within Visual Studio Code.
+To access the environment variables, you’ll need to install `python-dotenv`. You can install the module using `pip install python-dotenv`.
 
 In `__init.py__`, import the following at the top of the file:
 
@@ -152,19 +155,17 @@ receiver_number = os.getenv("RECEIVER_NUMBER")
 The [Twilio Python Helper Library](https://www.twilio.com/docs/libraries/python) makes it easy to interact with the Twilio API from the Python app.
 You can install the Twilio Python Helper Library using `pip install twilio` in the terminal within Visual Studio Code.
 
-Import Twilio above the variables for the environment variables.
+Import `twilio` above the variables for the environment variables.
 
 ```python
-account_sid = os.getenv("TWILIO_ACCOUNT_SID")
-auth_token = os.getenv("TWILIO_AUTH_TOKEN")
-nasa_api_key= os.getenv("NASA_API_KEY")
-my_twilio_number = os.getenv("MY_TWILIO_NUMBER")
-receiver_number = os.getenv("RECEIVER_NUMBER")
+from twilio.rest import Client
 ```
 
 **Create message**
 
-Now it's time for some Twilio fun! Twilio provides a template that you can use - which is a huge time saver. Let's walk through the template:
+Now it's time for some Twilio fun! Twilio provides a template that you can use - which is a huge time saver. The template can be found in the [Twilio Programmable SMS](https://www.twilio.com/docs/sms/tutorials/how-to-send-sms-messages-python) documentation. You'll need to copy everything from `client = Client(account_sid, auth_token)` to `print(message.sid)`. Replace the `from` and `to` values with the variables created earlier which stores the environment variables for the Twilio phone number and receiver's phone number.
+
+Let's walk through the template:
 
 ```python
 
@@ -186,7 +187,7 @@ Next, we'll create the message. Using the variables we created earlier for data 
 
 ## Demo 4 - Visual Studio Code Debugger
 
-Now that the message is created, we can prepare for testing the function. However, we need to update the `Requirements.txt` file and `function.json` file. 
+Now that the message is created, we can prepare for testing the function. However, we need to update the `requirements.txt` file and `function.json` file. 
 
 **requirements.txt**
 
@@ -201,7 +202,7 @@ python-dotenv
 
 **function.json** 
 
-Right now, the code defaults to generating a text every 5 minutes. However, if that's too long of a wait, you can adjust the [CRON expression](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=csharp#ncrontab-expressions) in the function.json file. You can locate the `function.json` file inside the folder created for your function. I would suggest changing the 5 to a 1 if you want the trigger to send the text every minute while you debug in the next step! 
+Right now, the code defaults to generating a text every 5 minutes. However, if that's too long of a wait, you can adjust the [CRON expression](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=csharp#ncrontab-expressions) in the `function.json` file. You can locate the `function.json` file inside the folder created for your function. I would suggest changing the 5 to a 1 if you want the trigger to send the text every minute while you debug in the next step.
 
 ```json
 {
@@ -221,7 +222,7 @@ If you choose to update the CRON expression, be sure to save the file and return
 
 **Run in the debugger**
 
-Before you deploy the function to Azure, test everything by running the debugger. Your code in 
+You can test everything by running the debugger. Your code in 
 `__init__.py` should reflect the following:
 
 ```python
@@ -266,33 +267,35 @@ def main(mytimer: func.TimerRequest) -> None:
 
 Make sure that you’re looking at the `__init__.py` file.  In the Visual Studio Code menu, click “Run” > “Start Debugging”.
 
-[insert picture]
+![Start debugging](assets/start-debugging.png)
 
 Visual Studio Code will first prompt you to select a “Storage Account”. Click “Select storage account”.
 
-[insert picture]
+![Select storage account](assets/select-storage-account.png)
 
-Next, either select an existing Storage Account or click “+ Create new storage account”. If you are using an existing storage account, the debugger will proceed to start. Skip to **Wait for a message**.
+Next, either select an existing Storage Account or click “+ Create new storage account”. If you are using an existing storage account, proceed to the section **Wait for a message**.
 
-If you are creating a new storage account, provide a name for the storage account. Next, either select an existing “Resource Group” or click “+ Create new resource group”.Provide a name for the new resource group if you’re creating a new resource group. After you create or select an existing resource group, select a location for the resources. Additional information regarding locations is available at [Azure Locations](https://azure.microsoft.com/en-us/global-infrastructure/locations/).
+If you are creating a new storage account, provide a name for the storage account. Next, either select an existing “Resource Group” or click “+ Create new resource group”. Provide a name for the new resource group if you’re creating a new resource group. After you create or select an existing resource group, select a location for the resources. Additional information regarding locations is available at [Azure Locations](https://azure.microsoft.com/en-us/global-infrastructure/locations/).
 
 After the resource location is selected, Visual Studio Code will create the storage account. You can check the status at the bottom right of the Visual Studio Code window.
 
-Once the storage account is created, you're ready to test the function! 
+Once the storage account is created, you're ready to test the function!
 
 **Wait for a message**
 
 If the process fails the first time you debug, press “Ctrl” + “C” on your keyboard to shut down the debugger. Once everything is shut down, head to the terminal and enter the command `func host start`. This command is an alternative way to start the debugger. If you’re still receiving errors, review the the code to ensure that everything is accurate and that all the files reflect the updates that were made throughout this tutorial.
 
+![Debugger output](assets/debugger-result.png)
+
 Depending on the CRON expression you chose, the text will be sent after the first event triggers.
 
 ## Demo 5 - Deploy Function to Azure
 
-**Update Cron expression for a daily trigger**
+**Update CRON expression for a daily trigger**
 
-Before you deploy to Azure, adjust the CRON expression in the function.json file. By default, the Azure function uses the UTC timezone. Therefore, you need to set a time in that timezone that equates to 9AM in your specific timezone. Since I'm in California, I follow Pacific Time. Therefore, my CRON expression for everyday at 9AM would be: `0 0 16 * * *`.
+Before you deploy to Azure, adjust the CRON expression in the `function.json` file. By default, the Azure function uses the UTC timezone. To set the timer to trigger at 9AM in your specific time zone, set a time in that timezone that equates to 9AM UTC. Since I'm in California, I follow Pacific Time. Therefore, my CRON expression for everyday at 9AM would be: `0 0 16 * * *`.
 
-If you fall outside either of those timezones, you can use [this converter](https://www.timeanddate.com/worldclock/converter.html) to figure out the equivalent to 9AM for UTC in your time zone.
+You can use the [time and data time zone converter](https://www.timeanddate.com/worldclock/converter.html) to figure out the equivalent to 9AM UTC in your time zone.
 
 Update the CRON expression and save the function.json file.
 
@@ -304,27 +307,25 @@ Confirm the changes to the `requirements.txt`, `function.json` and `__init__.py`
 
 After you’ve confirmed and saved all files, click on the “Azure” tab in Visual Studio Code. Select the project and click the “Deploy” icon.
 
-[insert picture]
+![Click deploy](assets/deploy.png)
 
-You will be prompted to **+ Create new Function App** in Azure… Make sure not to select the option labeled with **Advanced**.
+You will be prompted to **+ Create new Function App in Azure…** Make sure not to select the option labeled with **Advanced**.
 
-[insert picture]
+![Create new function app](assets/create-new-function-app.png)
 
 You will then be prompted to provide a globally unique name for the app - essentially, no other function that exists on Azure should have this name.
 
-[insert picture]
+![Provide a function name](assets/function-name.png)
 
 Next, select the version of Python that you selected earlier when you first created the Azure Function. As a reminder, only Python 3.6.x and Python 3.7.x are supported.
 
-[insert picture]
+![Select a Python version](assets/python-version.png)
 
 You will now need to select a location for the new resources. Select a location based on where the function will be used. Additional information regarding locations is available at [Azure Locations](https://azure.microsoft.com/en-us/global-infrastructure/locations/).
 
-[insert picture]
+![Select a resource location](assets/function-location.png)
 
 Azure will begin the process to deploy the function. You can follow the progress in the status bar at the bottom right of the screen as well as the **Output** console. It takes a few minutes for your first deployment to complete, however, your subsequent deployments for the function will happen faster.
-
-[insert picture]
 
 After the deployment is complete, the function can be viewed in the Azure portal. As a reminder, if you ever need to make adjustments to the files, you can do so locally in Visual Studio Code and deploy the app again. When prompted, overwrite the previous deployment.
 
@@ -332,12 +333,4 @@ Once you're done with everything, you can type `deactivate` in the terminal to q
 
 If you're not going to continue to use the function, you can clean up the resources in the Azure portal - otherwise, the app will continue to run and you'll incur a minimal cost.
 
-In the Azure portal, select “Resource groups” from the left-side navigation pane.
-
-[insert picture]
-
-Next, click the resource group that was created in the process of this tutorial. Finally, click “Delete resource group” in the top menu.
-
-[insert picture]
-
-The Azure Portal will ask you to confirm that you want to delete the resource. Follow the instructions to confirm and click “Delete”.
+In the Azure portal, select “Resource groups” from the left-side navigation pane. Next, click the resource group that was created in the process of this tutorial. Finally, click “Delete resource group” in the top menu. The Azure Portal will ask you to confirm that you want to delete the resource. Follow the instructions to confirm and click “Delete”.
