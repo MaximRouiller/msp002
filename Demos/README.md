@@ -4,7 +4,7 @@
 
 You should have a few things open and ready:
 - PowerPoint
-- Browser Tab - GitHub - on the demo page: [link to repo](link)
+- Browser Tab - GitHub - on the demo page: [link to repo](https://github.com/MaximRouiller/msp002/tree/master/Demos)
 - Browser Tab - COVID-19 API - [https://covid19api.com/](https://covid19api.com/)
 - Browser Tab - Twilio Console - [https://www.twilio.com/console](https://www.twilio.com/console)
 - Browser Tab - Time Zone Converter - [https://www.timeanddate.com/worldclock/converter.html](https://www.timeanddate.com/worldclock/converter.html)
